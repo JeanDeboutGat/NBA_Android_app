@@ -10,7 +10,7 @@ import com.example.nba_project.data.entity.FavoriteTeam;
 import java.util.List;
 
 @Dao
-public interface FavoriteDao {
+public interface FavoriteDAO {
 
     @Insert
     public void addData(FavoriteTeam favoriteTeam);

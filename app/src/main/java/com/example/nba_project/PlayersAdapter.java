@@ -19,13 +19,13 @@ import java.util.List;
 import java.util.Objects;
 
 
-public class RecyclerAdapterPlayers extends  RecyclerView.Adapter<com.example.nba_project.RecyclerAdapterPlayers.MyviewHolder> {
+public class PlayersAdapter extends  RecyclerView.Adapter<PlayersAdapter.MyviewHolder> {
 
     public static final String EXTRA_MESSAGE = "com.example.api_balldontlie.MESSAGE";
     private List<NbaPlayer> players;
     Context context;
 
-    public RecyclerAdapterPlayers(Context context, List<NbaPlayer> players) {
+    public PlayersAdapter(Context context, List<NbaPlayer> players) {
         this.players = players;
         this.context = context;
     }
@@ -47,13 +47,13 @@ public class RecyclerAdapterPlayers extends  RecyclerView.Adapter<com.example.nb
         if(Objects.nonNull(players.get(position).getHeightFeet())){
             holder.height.setText(players.get(position).getHeightFeet().toString());
         }else{
-            holder.height.setText("Pas d'info");
+            holder.height.setText("No info");
         }
 
         if(Objects.nonNull(players.get(position).getPosition())){
             holder.position.setText(players.get(position).getPosition());
         }else{
-            holder.position.setText("Pas d'info");
+            holder.position.setText("No info");
         }
     }
 

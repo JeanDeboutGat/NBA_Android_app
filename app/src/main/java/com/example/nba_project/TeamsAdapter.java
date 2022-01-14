@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class RecyclerAdapterTeams extends  RecyclerView.Adapter<RecyclerAdapterTeams.MyviewHolder> implements Filterable {
+public class TeamsAdapter extends  RecyclerView.Adapter<TeamsAdapter.MyviewHolder> implements Filterable {
 
     public static final String EXTRA_MESSAGE = "com.example.api_balldontlie.MESSAGE";
     public static final int VIEW_TYPE_LIST = 0;
@@ -37,7 +37,7 @@ public class RecyclerAdapterTeams extends  RecyclerView.Adapter<RecyclerAdapterT
     private int teams_logos[];
     private int type = VIEW_TYPE_LIST;
 
-    public RecyclerAdapterTeams(Context context, List<Team> teams, int[] teams_logos) {
+    public TeamsAdapter(Context context, List<Team> teams, int[] teams_logos) {
         this.teams = teams;
         this.context = context;
         this.teams_logos = teams_logos;
@@ -60,7 +60,7 @@ public class RecyclerAdapterTeams extends  RecyclerView.Adapter<RecyclerAdapterT
 
     @NonNull
     @Override
-    public RecyclerAdapterTeams.MyviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TeamsAdapter.MyviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         if(viewType==VIEW_TYPE_LIST){
             view = LayoutInflater.from(parent.getContext()).inflate (R.layout.team_layout, parent, false);
@@ -81,7 +81,7 @@ public class RecyclerAdapterTeams extends  RecyclerView.Adapter<RecyclerAdapterT
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerAdapterTeams.MyviewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull TeamsAdapter.MyviewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         if(getItemViewType(position)== VIEW_TYPE_LIST){
             holder.fullname.setText(teams.get(position).getFullName());
@@ -90,7 +90,7 @@ public class RecyclerAdapterTeams extends  RecyclerView.Adapter<RecyclerAdapterT
         }
         holder.logo.setImageResource(teams_logos[position]);
 
-        if (MainActivity.favoriteDatabase.favoriteDao().isFavorite(teams.get(position).getId())==1){
+        if (MainActivity.favoritesDatabase.favoriteDAO().isFavorite(teams.get(position).getId())==1){
             holder.favorite_button.setImageResource(R.drawable.ic_favorite_red_24);
         }else {
             holder.favorite_button.setImageResource(R.drawable.ic_favorite_shadow_24);
@@ -100,7 +100,7 @@ public class RecyclerAdapterTeams extends  RecyclerView.Adapter<RecyclerAdapterT
         holder.constraint_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                     public void onClick(View view) {
-                    Intent intent = new Intent(context, Team_Activity.class);
+                    Intent intent = new Intent(context, TeamActivity.class);
                     intent.putExtra("team_logo",teams_logos[position]);
                     Bundle bundle = new Bundle();
                     bundle.putString("division", teams.get(position).getDivision());
@@ -125,13 +125,13 @@ public class RecyclerAdapterTeams extends  RecyclerView.Adapter<RecyclerAdapterT
                 favoriteTeam.setCity(teams.get(position).getCity());
                 favoriteTeam.setDivision(teams.get(position).getDivision());
 
-                if (MainActivity.favoriteDatabase.favoriteDao().isFavorite(id)!=1){
+                if (MainActivity.favoritesDatabase.favoriteDAO().isFavorite(id)!=1){
                     holder.favorite_button.setImageResource(R.drawable.ic_favorite_red_24);
-                    MainActivity.favoriteDatabase.favoriteDao().addData(favoriteTeam);
-                    Toast.makeText(context,favoriteTeam.getFullname()+" has been added to favorites", Toast.LENGTH_SHORT).show();
+                    MainActivity.favoritesDatabase.favoriteDAO().addData(favoriteTeam);
+                    Toast.makeText(context,favoriteTeam.getFullname()+" has been added to your favorites", Toast.LENGTH_SHORT).show();
                 }else {
                     holder.favorite_button.setImageResource(R.drawable.ic_favorite_shadow_24);
-                    MainActivity.favoriteDatabase.favoriteDao().delete(favoriteTeam);
+                    MainActivity.favoritesDatabase.favoriteDAO().delete(favoriteTeam);
                 }
 
             }

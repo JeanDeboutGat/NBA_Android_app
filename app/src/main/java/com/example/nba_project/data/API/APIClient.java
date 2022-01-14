@@ -4,7 +4,7 @@ package com.example.nba_project.data.API;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class API_Client {
+public class APIClient {
 
     public static String BASE_URL ="https://www.balldontlie.io/api/v1/";
 

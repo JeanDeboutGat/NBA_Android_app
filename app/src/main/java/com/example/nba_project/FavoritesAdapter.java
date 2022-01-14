@@ -19,14 +19,14 @@ import com.example.nba_project.data.entity.FavoriteTeam;
 import java.util.List;
 
 
-public class FavoriteAdapter extends  RecyclerView.Adapter<FavoriteAdapter.ViewHolder> {
+public class FavoritesAdapter extends  RecyclerView.Adapter<FavoritesAdapter.ViewHolder> {
 
     private List<FavoriteTeam> favoriteEntities;
     private int teams_logos[];
 
     Context context;
 
-    public FavoriteAdapter(List<FavoriteTeam> favoriteEntities, Context context, int teams_logos[]) {
+    public FavoritesAdapter(List<FavoriteTeam> favoriteEntities, Context context, int teams_logos[]) {
         this.favoriteEntities = favoriteEntities;
         this.context = context;
         this.teams_logos = teams_logos;
@@ -48,7 +48,7 @@ public class FavoriteAdapter extends  RecyclerView.Adapter<FavoriteAdapter.ViewH
         viewHolder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, Team_Activity.class);
+                Intent intent = new Intent(context, TeamActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("team_logo",teams_logos[position]);
                 Bundle bundle = new Bundle();

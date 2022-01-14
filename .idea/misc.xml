@@ -31,15 +31,18 @@
         <entry key="app/src/main/res/drawable/ic_logo_18x18.xml" value="0.1609375" />
         <entry key="app/src/main/res/drawable/ic_logo_app.xml" value="0.21944444444444444" />
         <entry key="app/src/main/res/drawable/ic_nba_256_1.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/layout-land/activity_favorites.xml" value="0.14739583333333334" />
         <entry key="app/src/main/res/layout-land/activity_favorites_list.xml" value="0.1890625" />
         <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.2015625" />
         <entry key="app/src/main/res/layout-land/activity_team.xml" value="0.2015625" />
         <entry key="app/src/main/res/layout-land/favorite_teams_layout.xml" value="0.1890625" />
         <entry key="app/src/main/res/layout-land/team_layout_grid.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/activity_favorites.xml" value="0.11458333333333333" />
         <entry key="app/src/main/res/layout/activity_favorites_list.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3184308369793922" />
         <entry key="app/src/main/res/layout/activity_team.xml" value="0.2515625" />
         <entry key="app/src/main/res/layout/favorite_teams_layout.xml" value="0.30512820512820515" />
+        <entry key="app/src/main/res/layout/player_layout.xml" value="0.1935185185185185" />
         <entry key="app/src/main/res/layout/team_layout.xml" value="0.175" />
         <entry key="app/src/main/res/layout/team_layout_grid.xml" value="0.22314814814814815" />
       </map>

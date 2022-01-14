@@ -12,8 +12,8 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.nba_project.data.API.API_Client;
-import com.example.nba_project.data.API.API_interface;
+import com.example.nba_project.data.API.APIClient;
+import com.example.nba_project.data.API.APIInterface;
 import com.example.nba_project.data.model.Meta;
 import com.example.nba_project.data.model.NbaPlayer;
 import com.example.nba_project.data.model.NbaPlayers;
@@ -26,9 +26,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Team_Activity extends AppCompatActivity {
+public class TeamActivity extends AppCompatActivity {
 
-    API_interface apiService = API_Client.getClient().create(API_interface.class);
+    APIInterface apiService = APIClient.getClient().create(APIInterface.class);
 
     private int teamIdD;
     private String fullname;
@@ -40,7 +40,7 @@ public class Team_Activity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-    private RecyclerAdapterPlayers recyclerAdapter;
+    private PlayersAdapter recyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,7 +153,7 @@ public class Team_Activity extends AppCompatActivity {
 
     private void setAdapter() {
         this.recyclerView = (RecyclerView) findViewById(R.id.players_recyclerViews);
-        this.recyclerAdapter = new RecyclerAdapterPlayers(this, this.players);
+        this.recyclerAdapter = new PlayersAdapter(this, this.players);
         this.layoutManager = new LinearLayoutManager(getApplicationContext());
         this.recyclerView.setLayoutManager(layoutManager);
         this.recyclerView.setItemAnimator(new DefaultItemAnimator());

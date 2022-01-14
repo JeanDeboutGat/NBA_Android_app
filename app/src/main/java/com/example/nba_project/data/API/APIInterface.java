@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public interface API_interface {
+public interface APIInterface {
     @GET("players")
     Call<NbaPlayers> getPlayers();
 

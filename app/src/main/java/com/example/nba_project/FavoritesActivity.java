@@ -12,14 +12,14 @@ import com.example.nba_project.data.entity.FavoriteTeam;
 
 import java.util.List;
 
-public class FavoritesListActivity extends AppCompatActivity {
+    public class FavoritesActivity extends AppCompatActivity {
     private RecyclerView favoritesListRV;
-    private FavoriteAdapter adapter;
+    private FavoritesAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_favorites_list);
+        setContentView(R.layout.activity_favorites);
 
         Toolbar toolbar=findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
@@ -34,8 +34,8 @@ public class FavoritesListActivity extends AppCompatActivity {
     }
 
     private void getFavoritesList() {
-        List<FavoriteTeam> FavoritesList=MainActivity.favoriteDatabase.favoriteDao().getFavoriteData();
-        adapter=new FavoriteAdapter(FavoritesList,getApplicationContext(),this.retrieveTeamsLogosExtra());
+        List<FavoriteTeam> FavoritesList=MainActivity.favoritesDatabase.favoriteDAO().getFavoriteData();
+        adapter=new FavoritesAdapter(FavoritesList,getApplicationContext(),this.retrieveTeamsLogosExtra());
         favoritesListRV.setAdapter(adapter);
     }
 

@@ -12,12 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nba_project">
         <activity
-            android:name=".FavoritesListActivity"
+            android:name=".FavoritesActivity"
             android:exported="true"
             android:parentActivityName=".MainActivity"
             />
         <activity
-            android:name=".Team_Activity"
+            android:name=".TeamActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
             />
